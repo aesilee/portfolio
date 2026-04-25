@@ -62,30 +62,26 @@ export default function Projects() {
 
   return (
     <section id="projects" className="relative py-16 md:py-20">
-      <div className="hidden md:block absolute left-[136px] lg:left-[156px] top-0 bottom-0 w-px bg-[#1E293B]" />
-      <div className="hidden md:block absolute left-[129px] lg:left-[149px] top-20">
-        <svg width="13" height="13" viewBox="0 0 14 14">
-          <path d="M7 0L8.5 5.5L14 7L8.5 8.5L7 14L5.5 8.5L0 7L5.5 5.5L7 0Z" fill="#7c5fe6" />
-        </svg>
-      </div>
+      <div className="hidden md:block absolute left-[200px] lg:left-[200px] top-0 bottom-0 w-px bg-[#3D3367] z-0" />
 
-      <div className="px-6 sm:px-8 md:pl-[180px] lg:pl-[200px] md:pr-8">
-        <h2 className="font-mono text-[#a78bfa] text-lg sm:text-2xl font-bold mb-6 tracking-widest">Projects</h2>
+      <div className="px-6 sm:px-8 md:pl-[190px] lg:pl-[210px] md:pr-8">
+        <div className="relative z-10 flex items-center gap-3 mb-6">
+          <div className="hidden md:block flex-shrink-0 -ml-[22px] relative z-10 bg-[#000013] px-[1px]">
+            <svg width="24" height="24" viewBox="0 0 14 14">
+              <path d="M7 0L8.5 5.5L14 7L8.5 8.5L7 14L5.5 8.5L0 7L5.5 5.5L7 0Z" fill="#7c5fe6" />
+            </svg>
+          </div>
+          <h2 className="font-mono text-[#a78bfa] text-lg sm:text-2xl font-bold tracking-widest">Projects</h2>
+        </div>
 
-        {/* Switch button */}
-        <button onClick={handleModeSwitch}
-          className="flex items-center justify-between border border-[#2a2a5a] bg-[#0f1028] text-white font-mono text-xs sm:text-sm px-4 py-2.5 mb-4 hover:border-[#7c5fe6] transition-colors w-full md:w-72">
-          <span>{mode === "dev" ? "Switch to UI/UX" : "Switch to Dev"}</span>
-          <span className="text-[#7c5fe6]">⇄</span>
-        </button>
-
-        {/* Mobile: stacked list. Desktop: side by side */}
-        <div className="flex flex-col md:flex-row gap-6">
+        <div>
+          {/* Mobile: stacked list. Desktop: side by side */}
+          <div className="flex flex-col md:flex-row gap-6">
 
           {/* Main display */}
-          <div className="flex-1">
-            <div className="w-full h-40 sm:h-52 md:h-64 bg-[#0d1030] border border-[#1e2040] mb-4" />
-            <h3 className="font-mono text-white font-bold text-sm sm:text-base mb-2">{selected.title}</h3>
+          <div className="flex-1 md:pl-[20px]">
+            <div className="w-full h-40 sm:h-52 md:h-64 bg-[#0d1030] border border-[#1e2040] mb-4 rounded-md" />
+            <h3 className="font-mono text-white font-bold text-sm sm:text-base mb-2 rounded-md">{selected.title}</h3>
             <p className="font-mono text-gray-400 text-xs sm:text-sm leading-loose mb-4">{selected.description}</p>
             <div className="flex flex-wrap gap-2">
               {selected.tags.map((tag) => (
@@ -98,17 +94,30 @@ export default function Projects() {
 
           {/* Project list — full width cards on mobile */}
           <div className="md:w-64 lg:w-72 flex flex-col gap-2">
+            {/* Switch button — desktop only, sits above list */}
+            <button onClick={handleModeSwitch}
+              className="hidden md:flex items-center justify-between border border-[#2a2a5a] bg-[#0f1028] text-white font-mono text-xs px-4 py-2.5 mb-2 hover:border-[#7c5fe6] transition-colors w-full rounded-md">
+              <span className="text-gray-300">{mode === "dev" ? "Switch to UI/UX" : "Switch to Dev"}</span>
+              <span className="text-gray-300">⇄</span>
+            </button>
+            {/* Switch button — mobile only, full width */}
+            <button onClick={handleModeSwitch}
+              className="md:hidden flex items-center justify-between border border-[#2a2a5a] bg-[#0f1028] text-white font-mono text-xs px-4 py-2.5 mb-2 hover:border-[#7c5fe6] transition-colors w-full rounded-md">
+              <span className="text-gray-300">{mode === "dev" ? "Switch to UI/UX" : "Switch to Dev"}</span>
+              <span className="text-gray-300">⇄</span>
+            </button>
             {projects.map((proj) => (
               <button key={proj.id} onClick={() => setSelected(proj)}
                 className={`flex items-center gap-3 border p-3 text-left transition-colors w-full ${
                   selected.id === proj.id
                     ? "border-[#7c5fe6] bg-[#1a1a40]"
                     : "border-[#1e2040] bg-[#0f1028] hover:border-[#2a2a5a]"
-                }`}>
-                <div className="w-14 h-10 bg-[#0d1030] flex-shrink-0 border border-[#1e2040]" />
+                } rounded-md`}>
+                <div className="w-14 h-10 bg-[#0d1030] flex-shrink-0 border border-[#1e2040] rounded-md" />
                 <span className="font-mono text-[10px] sm:text-xs text-gray-300 line-clamp-2">{proj.title}</span>
               </button>
             ))}
+          </div>
           </div>
         </div>
       </div>

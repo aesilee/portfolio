@@ -1,6 +1,6 @@
 function Diamond() {
   return (
-    <svg width="13" height="13" viewBox="0 0 14 14">
+    <svg width="24" height="24" viewBox="0 0 14 14">
       <path d="M7 0L8.5 5.5L14 7L8.5 8.5L7 14L5.5 8.5L0 7L5.5 5.5L7 0Z" fill="#7c5fe6" />
     </svg>
   );
@@ -9,11 +9,18 @@ function Diamond() {
 export default function About() {
   return (
     <section id="about" className="relative py-16 md:py-24">
-      <div className="hidden md:block absolute left-[136px] lg:left-[156px] top-0 bottom-0 w-px bg-[#1E293B]" />
-      <div className="hidden md:block absolute left-[129px] lg:left-[149px] top-24"><Diamond /></div>
+      {/* Vertical line */}
+      <div className="hidden md:block absolute left-[200  px] lg:left-[200px] top-0 bottom-0 w-px bg-[#3D3367] z-0" />
 
-      <div className="px-6 sm:px-8 md:pl-[180px] lg:pl-[200px] md:pr-12">
-        <h2 className="font-mono text-[#a78bfa] text-lg sm:text-2xl font-bold mb-6 tracking-widest">About Me</h2>
+      <div className="px-6 sm:px-8 md:pl-[190px] lg:pl-[210px] md:pr-12">
+        <div className="relative z-10 flex items-center gap-3 mb-6">
+          {/* Diamond */}
+          <div className="hidden md:block flex-shrink-0 -ml-[22px] relative z-10 bg-[#000013] px-[1px]">
+            <Diamond />
+          </div>
+          {/* Title */}
+          <h2 className="font-mono text-[#a78bfa] text-lg sm:text-2xl font-bold tracking-widest">About Me</h2>
+        </div>
 
         {/* Mobile: photo on top, Desktop: photo on right */}
         <div className="flex flex-col md:flex-row gap-8 md:gap-16 items-start">
@@ -21,8 +28,8 @@ export default function About() {
           {/* Photo — shows first on mobile */}
           <div className="flex-shrink-0 md:order-2">
             <div className="relative w-40 h-48 sm:w-52 sm:h-60 md:w-64 md:h-72">
-              <div className="absolute top-3 left-3 w-full h-full border border-[#7c5fe6]/40" />
-              <div className="relative w-full h-full border border-[#2a2a4a] overflow-hidden bg-[#0f0f2a]">
+              <div className="absolute top-3 left-3 w-full h-full border border-[#7c5fe6]/40 rounded-md" />
+              <div className="relative w-full h-full border border-[#2a2a4a] overflow-hidden bg-[#0f0f2a] rounded-md">
                 <img src="/ashley.jpg" alt="Ashley Tongco"
                   className="w-full h-full object-cover"
                   onError={(e) => { e.target.style.display = "none"; }} />
@@ -31,9 +38,9 @@ export default function About() {
           </div>
 
           {/* Text */}
-          <div className="flex-1 md:order-1">
+          <div className="flex-1 md:order-1 md:pl-[20px]">
             <p className="font-mono text-gray-300 text-xs sm:text-sm leading-loose mb-4">
-              Hi! I'm <span className="text-[#f97316]">Ashley Shad Tongco</span>, and I enjoy building
+              Hi! I'm <span className="text-[#89CFF0]">Ashley Shad Tongco</span>, and I enjoy building
               systems that assist people and make daily life more convenient.
             </p>
             <p className="font-mono text-gray-300 text-xs sm:text-sm leading-loose mb-4">
@@ -50,7 +57,7 @@ export default function About() {
             </p>
             <button
               onClick={() => document.getElementById("techstack")?.scrollIntoView({ behavior: "smooth" })}
-              className="border border-[#7c5fe6] text-white font-mono text-xs sm:text-sm px-5 py-2.5 hover:bg-[#7c5fe6]/20 transition-colors tracking-wide">
+              className="border border-[#7c5fe6] text-white font-mono text-xs sm:text-sm px-5 py-2.5 hover:bg-[#7c5fe6]/20 transition-colors tracking-wide rounded-md">
               View my Tech Stack
             </button>
           </div>

@@ -41,7 +41,7 @@ export default function Navbar({ activeSection }) {
               {link.label}
             </button>
           ))}
-          <button className="border border-[#94A3B8]/60 text-[#F8FAFC] text-sm px-3 sm:px-4 md:px-5 py-1.5 font-mono tracking-wide hover:bg-[#F8FAFC] hover:text-[#000013] transition-colors duration-200 rounded-xl">
+          <button className="border border-[#94A3B8]/60 text-[#F8FAFC] text-sm px-3 sm:px-4 md:px-5 py-1.5 font-mono tracking-wide hover:bg-[#F8FAFC] hover:text-[#000013] transition-colors duration-200 rounded-md">
             Resume
           </button>
         </div>

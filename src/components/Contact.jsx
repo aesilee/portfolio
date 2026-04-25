@@ -1,56 +1,61 @@
 import { useState } from "react";
 
 export default function Contact() {
-  const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
   const handleChange = (e) => setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
 
   return (
     <section id="contact" className="relative py-16 md:py-24">
-      <div className="hidden md:block absolute left-[136px] lg:left-[156px] top-0 bottom-0 w-px bg-[#1E293B]" />
-      <div className="hidden md:block absolute left-[129px] lg:left-[149px] top-24">
-        <svg width="13" height="13" viewBox="0 0 14 14">
-          <path d="M7 0L8.5 5.5L14 7L8.5 8.5L7 14L5.5 8.5L0 7L5.5 5.5L7 0Z" fill="#7c5fe6" />
-        </svg>
-      </div>
+      <div className="hidden md:block absolute left-[200px] lg:left-[200px] top-0 bottom-0 w-px bg-[#3D3367] z-0" />
 
-      <div className="px-6 sm:px-8 md:pl-[180px] lg:pl-[200px] md:pr-12">
-        <h2 className="font-mono text-[#a78bfa] text-lg sm:text-2xl font-bold mb-6 tracking-widest">
-          Lets Work Together!
-        </h2>
+      <div className="px-6 sm:px-8 md:pl-[190px] lg:pl-[210px] md:pr-12">
+        <div className="relative z-10 flex items-center gap-3 mb-6">
+          <div className="hidden md:block flex-shrink-0 -ml-[22px] relative z-10 bg-[#000013] px-[1px]">
+            <svg width="24" height="24" viewBox="0 0 14 14">
+              <path d="M7 0L8.5 5.5L14 7L8.5 8.5L7 14L5.5 8.5L0 7L5.5 5.5L7 0Z" fill="#7c5fe6" />
+            </svg>
+          </div>
+          <h2 className="font-mono text-[#a78bfa] text-lg sm:text-2xl font-bold tracking-widest">
+            Lets Work Together!
+          </h2>
+        </div>
 
-        {/* Stacked on mobile, side by side on desktop */}
-        <div className="flex flex-col md:flex-row gap-4 md:gap-6">
+        {/* Stacked on mobile, equal-height columns on desktop */}
+        <div className="flex flex-col md:grid md:grid-cols-2 md:items-stretch gap-4 md:gap-6">
 
-          {/* Form */}
-          <div className="flex-1 border border-[#1e2040] p-4 sm:p-5 bg-[#0a0a1a]">
-            <div className="mb-4">
-              <label className="font-mono text-gray-400 text-xs block mb-1.5">Name</label>
-              <input type="text" name="name" value={form.name} onChange={handleChange}
-                className="w-full bg-[#0f0f28] border border-[#1e2040] text-white font-mono text-xs px-3 py-2 focus:outline-none focus:border-[#7c5fe6] transition-colors" />
-            </div>
+          {/*Main Form */}
+          <div className="border border-[#1e2040] p-4 sm:p-5 bg-[#0a0a1a] flex flex-col h-full rounded-md md:ml-[18px]">
+
             <div className="mb-4">
               <label className="font-mono text-gray-400 text-xs block mb-1.5">Email</label>
               <input type="email" name="email" value={form.email} onChange={handleChange}
-                className="w-full bg-[#0f0f28] border border-[#1e2040] text-white font-mono text-xs px-3 py-2 focus:outline-none focus:border-[#7c5fe6] transition-colors" />
+                className="w-full bg-[#0f0f28] border border-[#1e2040] text-white font-mono text-xs px-3 py-2 focus:outline-none focus:border-[#7c5fe6] transition-colors rounded-md" />
             </div>
-            <div>
+
+            <div className="mb-4">
+              <label className="font-mono text-gray-400 text-xs block mb-1.5">Subject</label>
+              <input type="text" name="subject" value={form.subject} onChange={handleChange}
+                className="w-full bg-[#0f0f28] border border-[#1e2040] text-white font-mono text-xs px-3 py-2 focus:outline-none focus:border-[#7c5fe6] transition-colors rounded-md" />
+            </div>
+
+            <div className="flex flex-col flex-1">
               <label className="font-mono text-gray-400 text-xs block mb-1.5">Message</label>
-              <div className="relative">
-                <textarea name="message" value={form.message} onChange={handleChange} rows={4}
-                  className="w-full bg-[#0f0f28] border border-[#1e2040] text-white font-mono text-xs px-3 py-2 focus:outline-none focus:border-[#7c5fe6] transition-colors resize-none" />
-                <button className="absolute bottom-2.5 right-2.5 text-[#7c5fe6] hover:text-[#a78bfa] transition-colors">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                    <line x1="22" y1="2" x2="11" y2="13" />
-                    <polygon points="22 2 15 22 11 13 2 9 22 2" />
-                  </svg>
+              <div className="flex flex-col flex-1">
+                <textarea name="message" value={form.message} onChange={handleChange} rows={7}
+                  className="w-full flex-1 min-h-[140px] bg-[#0f0f28] border border-[#1e2040] text-white font-mono text-xs px-3 py-2 focus:outline-none focus:border-[#7c5fe6] transition-colors resize-none rounded-md" />
+                <button
+                  type="button"
+                  className="mt-2 border border-[#7c5fe6] text-[#a78bfa] font-mono text-xs px-5 py-2 rounded-md hover:bg-[#7c5fe6]/15 transition-colors"
+                >
+                  Send
                 </button>
               </div>
             </div>
           </div>
 
           {/* Right panel */}
-          <div className="flex-1 flex flex-col gap-4">
-            <div className="border border-[#1e2040] p-5 bg-[#0a0a1a]">
+          <div className="flex flex-col gap-4 h-full">
+            <div className="border border-[#1e2040] p-5 bg-[#0a0a1a] rounded-md">
               <p className="font-mono text-gray-300 text-xs leading-loose mb-4">
                 I'm always open to discussing new opportunities, creative projects, or partnerships.
                 Whether you have a specific project in mind or just want to explore possibilities,
@@ -65,11 +70,11 @@ export default function Contact() {
 
             <div>
               <h3 className="font-mono text-white font-bold text-sm mb-2">Get In Touch</h3>
-              <div className="border border-[#1e2040] bg-[#0a0a1a] p-4">
+              <div className="border border-[#1e2040] bg-[#0a0a1a] p-4 rounded-md">
                 <div className="space-y-2.5 mb-4">
                   <div className="flex items-center gap-2.5">
                     <MailIcon />
-                    <a href="mailto:ashquinas@gmail.com" className="font-mono text-[#60a5fa] text-xs hover:underline">
+                    <a href="mailto:ashquinas@gmail.com" className="font-mono text-gray-300 text-xs hover:underline">
                       ashquinas@gmail.com
                     </a>
                   </div>
