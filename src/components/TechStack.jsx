@@ -78,7 +78,7 @@ function TechItem({ name, icon, invert }) {
 
 function CategoryBlock({ title, items }) {
   return (
-    <div className="flex-1 min-w-[200px]">
+    <div className="w-full md:flex-1 md:min-w-[200px]">
       <p className="text-xs text-[#94A3B8] mb-3 font-bold" style={{ fontFamily: "'JetBrains Mono', monospace" }}>{title}</p>
       <div className="border border-[#1E293B] bg-[#0F172A] flex flex-wrap">
         {items.map((item) => (
@@ -95,7 +95,7 @@ export default function TechStack() {
   const row3 = techCategories.slice(5, 7);
 
   return (
-    <section id="techstack" className="relative min-h-screen flex items-center py-24">
+    <section id="techstack" className="relative min-h-screen flex items-center py-20 md:py-24">
       <div className="hidden md:block absolute left-[136px] lg:left-[156px] top-0 bottom-0 w-px bg-[#3D3367] z-0" />
 
       <div className="w-full px-6 sm:px-10 md:pl-[160px] lg:pl-[180px] xl:pl-[200px] pr-6 md:pr-12">
@@ -113,13 +113,13 @@ export default function TechStack() {
           Tools &amp; Technologies I work with
         </p>
 
-        <div className="flex gap-6 mb-6 flex-wrap">
+        <div className="flex flex-col md:flex-row gap-6 mb-6">
           {row1.map((cat) => <CategoryBlock key={cat.title} {...cat} />)}
         </div>
-        <div className="flex gap-6 mb-6 flex-wrap">
+        <div className="flex flex-col md:flex-row gap-6 mb-6">
           {row2.map((cat) => <CategoryBlock key={cat.title} {...cat} />)}
         </div>
-        <div className="flex gap-6 flex-wrap">
+        <div className="flex flex-col md:flex-row gap-6">
           {row3.map((cat) => <CategoryBlock key={cat.title} {...cat} />)}
         </div>
       </div>
