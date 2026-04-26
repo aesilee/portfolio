@@ -13,7 +13,7 @@ export default function Navbar({ activeSection }) {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-transparent">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-[#000013]/90 backdrop-blur-sm">
       <div className="flex items-center justify-center lg:justify-between px-4 sm:px-6 lg:px-8 py-3 lg:py-4">
         <div className="hidden lg:block cursor-pointer" onClick={() => scrollTo("home")}>
           <svg width="52" height="36" viewBox="0 0 52 36">
