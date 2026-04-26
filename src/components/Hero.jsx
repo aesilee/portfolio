@@ -3,7 +3,7 @@ export default function Hero() {
     <section id="home" className="relative min-h-screen flex items-center">
 
       {/* Vertical line — desktop only */}
-      <div className="hidden md:block absolute left-[200px] lg:left-[200px] top-[40%] bottom-0 w-px bg-[#3D3367] z-0" />
+      <div className="hidden md:block absolute left-[200px] lg:left-[200px] top-[42%] bottom-0 w-px bg-[#3D3367] z-0" />
 
       <div className="w-full pt-24 pb-16 px-6 sm:px-10 md:pl-[220px]">
 

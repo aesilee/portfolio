@@ -1,3 +1,5 @@
+import ashleyPhoto from "../../ashley.jpg";
+
 function Diamond() {
   return (
     <svg width="24" height="24" viewBox="0 0 14 14">
@@ -30,9 +32,11 @@ export default function About() {
             <div className="relative w-40 h-48 sm:w-52 sm:h-60 md:w-64 md:h-72">
               <div className="absolute top-3 left-3 w-full h-full border border-[#7c5fe6]/40 rounded-md" />
               <div className="relative w-full h-full border border-[#2a2a4a] overflow-hidden bg-[#0f0f2a] rounded-md">
-                <img src="/ashley.jpg" alt="Ashley Tongco"
+                <img
+                  src={ashleyPhoto}
+                  alt="Ashley Tongco"
                   className="w-full h-full object-cover"
-                  onError={(e) => { e.target.style.display = "none"; }} />
+                />
               </div>
             </div>
           </div>
