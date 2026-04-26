@@ -26,6 +26,9 @@ export default function Contact() {
         "service_myi8bbt",
         "template_fx14map",
         {
+          name: form.name || "Portfolio Visitor",
+          email: form.email,
+          from_name: form.name || "Portfolio Visitor",
           from_email: form.email,
           subject: form.subject,
           message: form.message,
@@ -34,7 +37,8 @@ export default function Contact() {
       );
       showToast("success", "Message sent. I will get back to you soon.");
       setForm({ name: "", email: "", subject: "", message: "" });
-    } catch {
+    } catch (error) {
+      console.error("EmailJS send failed:", error);
       showToast("error", "Failed to send message. Please try again.");
     } finally {
       setIsSending(false);
