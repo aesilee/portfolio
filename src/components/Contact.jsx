@@ -35,7 +35,7 @@ export default function Contact() {
         },
         "ean5XXOn_8xezbduw"
       );
-      showToast("success", "Message sent. I will get back to you soon.");
+      showToast("success", "Thank you for reaching out! I will get back to you soon.");
       setForm({ name: "", email: "", subject: "", message: "" });
     } catch (error) {
       console.error("EmailJS send failed:", error);
@@ -82,13 +82,13 @@ export default function Contact() {
             <div className="flex flex-col flex-1">
               <label className="font-mono text-gray-400 text-xs block mb-1.5">Message</label>
               <div className="flex flex-col flex-1">
-                <textarea name="message" value={form.message} onChange={handleChange} rows={7}
-                  className="w-full flex-1 min-h-[140px] bg-[#0f0f28] border border-[#1e2040] text-white font-mono text-xs px-3 py-2 focus:outline-none focus:border-[#7c5fe6] transition-colors resize-none rounded-md" />
+                <textarea name="message" value={form.message} onChange={handleChange} 
+                  className="w-full bg-[#0f0f28] border border-[#1e2040] text-white font-mono text-xs px-3 py-2 focus:outline-none focus:border-[#7c5fe6] transition-colors resize-none rounded-md h-[140px]" />
                 <button
                   type="button"
                   onClick={handleSend}
                   disabled={isSending}
-                  className="mt-2 border border-[#7c5fe6] text-[#a78bfa] font-mono text-xs px-5 py-2 rounded-md hover:bg-[#7c5fe6]/15 transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
+                  className="mt-6 border border-[#7c5fe6] text-[#a78bfa] font-mono text-xs px-5 py-2 rounded-md hover:bg-[#7c5fe6]/15 transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
                 >
                   {isSending ? "Sending..." : "Send"}
                 </button>
@@ -157,8 +157,8 @@ export default function Contact() {
           toast.show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2 pointer-events-none"
         } ${
           toast.type === "success"
-            ? "bg-[#0d1b1f] border-[#1f8a70] text-[#c8f7e5]"
-            : "bg-[#1f1313] border-[#a33a3a] text-[#fecaca]"
+            ? "bg-[#2f9e72] border-[#50C878] text-white"
+            : "bg-[#b33d3d] border-[#d96464] text-white"
         }`}
         role="status"
         aria-live="polite"
