@@ -3,13 +3,13 @@ export default function Hero() {
     <section id="home" className="relative min-h-screen flex items-center">
 
       {/* Vertical line — desktop only */}
-      <div className="hidden lg:block absolute left-[200px] top-[39%] bottom-0 w-px bg-[#3D3367] z-0" />
+      <div className="section-line hidden lg:block absolute left-[200px] top-[39%] bottom-0 w-px bg-[#3D3367] z-0" />
 
       <div className="w-full pt-24 pb-16 px-6 sm:px-10 lg:pl-[220px]">
 
         {/* Greeting row */}
         <div className="relative z-10 flex items-center gap-3 mb-5 lg:-ml-[10px]">
-          <div className="hidden lg:block flex-shrink-0 -ml-[22px] relative z-10 bg-[#000013] px-[1px]">
+          <div className="hidden lg:block flex-shrink-0 -ml-[22px] relative z-10 px-[1px]">
             <svg width="24" height="24" viewBox="0 0 14 14">
               <path d="M7 0L8.5 5.5L14 7L8.5 8.5L7 14L5.5 8.5L0 7L5.5 5.5L7 0Z" fill="#A78BFA" />
             </svg>

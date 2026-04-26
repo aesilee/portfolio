@@ -107,13 +107,13 @@ export default function TechStack() {
 
   return (
     <section id="techstack" className="relative min-h-screen flex items-center py-20 lg:py-24">
-      <div className="hidden lg:block absolute left-[200px] top-0 bottom-0 w-px bg-[#3D3367] z-0" />
+      <div className="section-line hidden lg:block absolute left-[200px] top-0 bottom-0 w-px bg-[#3D3367] z-0" />
 
       <div className="w-full px-6 sm:px-10 lg:pl-[210px] pr-6 lg:pr-12">
         <div className="relative z-10 flex items-center gap-3 mb-1">
 
           {/* Diamond */}
-          <div className="hidden lg:block flex-shrink-0 -ml-[22px] relative z-10 bg-[#000013] px-[1px]">
+          <div className="hidden lg:block flex-shrink-0 -ml-[22px] relative z-10 px-[1px]">
             <svg width="24" height="24" viewBox="0 0 14 14">
               <path d="M7 0L8.5 5.5L14 7L8.5 8.5L7 14L5.5 8.5L0 7L5.5 5.5L7 0Z" fill="#A78BFA" />
             </svg>

@@ -44,6 +44,115 @@ body::before {
   z-index: 1;
 }
 
+:root {
+  --scroll-progress: 0;
+}
+
+/* Animated blurred background orbs */
+.bg-orb {
+  position: fixed;
+  border-radius: 999px;
+  pointer-events: none;
+  z-index: 0;
+  background: #a78bfa;
+  opacity: 0.18;
+  filter: blur(85px);
+  transition: transform 0.2s linear;
+  will-change: transform;
+}
+
+.bg-orb-1 {
+  width: 320px;
+  height: 320px;
+  top: -120px;
+  right: -80px;
+  transform: translate(
+    calc(var(--scroll-progress) * -130px),
+    calc(var(--scroll-progress) * 380px)
+  );
+}
+
+.bg-orb-2 {
+  width: 260px;
+  height: 260px;
+  top: 35vh;
+  left: -150px;
+  opacity: 0.14;
+  transform: translate(
+    calc(var(--scroll-progress) * 180px),
+    calc(var(--scroll-progress) * -140px)
+  );
+}
+
+.bg-orb-3 {
+  width: 220px;
+  height: 220px;
+  bottom: -90px;
+  right: 20%;
+  opacity: 0.12;
+  transform: translate(
+    calc(var(--scroll-progress) * -90px),
+    calc(var(--scroll-progress) * -300px)
+  );
+}
+
+/* Scroll reveal */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(58px) scale(0.965);
+  filter: blur(6px);
+  transition:
+    opacity 0.95s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.95s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.95s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform, filter;
+}
+
+.scroll-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0);
+}
+
+.section-line {
+  display: none !important;
+}
+
+/* Interactive hover polish */
+button,
+a {
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+button:hover,
+a:hover {
+  transform: translateY(-1px);
+}
+
+button:active,
+a:active {
+  transform: translateY(0);
+}
+
+button:not(:disabled),
+a,
+[role="button"] {
+  cursor: pointer;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal,
+  .scroll-reveal.is-visible,
+  .bg-orb,
+  button,
+  a {
+    transition: none !important;
+    transform: none !important;
+    filter: none !important;
+  }
+}
+
 /* Scrollbar */
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: #000013; }

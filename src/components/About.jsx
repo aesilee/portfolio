@@ -12,12 +12,12 @@ export default function About() {
   return (
     <section id="about" className="relative py-16 lg:py-24">
       {/* Vertical line */}
-      <div className="hidden lg:block absolute left-[200px] top-0 bottom-0 w-px bg-[#3D3367] z-0" />
+      <div className="section-line hidden lg:block absolute left-[200px] top-0 bottom-0 w-px bg-[#3D3367] z-0" />
 
       <div className="px-6 sm:px-8 lg:pl-[210px] lg:pr-12">
         <div className="relative z-10 flex items-center gap-3 mb-6">
           {/* Diamond */}
-          <div className="hidden lg:block flex-shrink-0 -ml-[22px] relative z-10 bg-[#000013] px-[1px]">
+          <div className="hidden lg:block flex-shrink-0 -ml-[22px] relative z-10 px-[1px]">
             <Diamond />
           </div>
           {/* Title */}
