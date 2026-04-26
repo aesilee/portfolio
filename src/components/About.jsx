@@ -10,14 +10,14 @@ function Diamond() {
 
 export default function About() {
   return (
-    <section id="about" className="relative py-16 md:py-24">
+    <section id="about" className="relative py-16 lg:py-24">
       {/* Vertical line */}
-      <div className="hidden md:block absolute left-[200  px] lg:left-[200px] top-0 bottom-0 w-px bg-[#3D3367] z-0" />
+      <div className="hidden lg:block absolute left-[200px] top-0 bottom-0 w-px bg-[#3D3367] z-0" />
 
-      <div className="px-6 sm:px-8 md:pl-[190px] lg:pl-[210px] md:pr-12">
+      <div className="px-6 sm:px-8 lg:pl-[210px] lg:pr-12">
         <div className="relative z-10 flex items-center gap-3 mb-6">
           {/* Diamond */}
-          <div className="hidden md:block flex-shrink-0 -ml-[22px] relative z-10 bg-[#000013] px-[1px]">
+          <div className="hidden lg:block flex-shrink-0 -ml-[22px] relative z-10 bg-[#000013] px-[1px]">
             <Diamond />
           </div>
           {/* Title */}
@@ -25,11 +25,11 @@ export default function About() {
         </div>
 
         {/* Mobile: photo on top, Desktop: photo on right */}
-        <div className="flex flex-col md:flex-row gap-8 md:gap-16 items-start">
+        <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 items-start">
 
           {/* Photo — shows first on mobile */}
-          <div className="flex-shrink-0 md:order-2">
-            <div className="relative w-40 h-48 sm:w-52 sm:h-60 md:w-64 md:h-72">
+          <div className="flex-shrink-0 lg:order-2">
+            <div className="relative w-40 h-48 sm:w-52 sm:h-60 lg:w-64 lg:h-72">
               <div className="absolute top-3 left-3 w-full h-full border border-[#7c5fe6]/40 rounded-md" />
               <div className="relative w-full h-full border border-[#2a2a4a] overflow-hidden bg-[#0f0f2a] rounded-md">
                 <img
@@ -42,7 +42,7 @@ export default function About() {
           </div>
 
           {/* Text */}
-          <div className="flex-1 md:order-1 md:pl-[20px]">
+          <div className="flex-1 lg:order-1 lg:pl-[20px]">
             <p className="font-mono text-gray-300 text-xs sm:text-sm leading-loose mb-4">
               Hi! I'm <span className="text-[#89CFF0]">Ashley Shad Tongco</span>, and I enjoy building
               systems that assist people and make daily life more convenient.

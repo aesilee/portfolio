@@ -89,7 +89,7 @@ function TechItem({ name, icon, invert, svg }) {
 
 function CategoryBlock({ title, items }) {
   return (
-    <div className="w-full md:flex-1">
+    <div className="w-full xl:flex-1">
       <p className="text-xs text-[#94A3B8] mb-3 font-bold" style={{ fontFamily: "'JetBrains Mono', monospace" }}>{title}</p>
       <div className="border border-[#1E293B] bg-transparent flex flex-nowrap overflow-x-auto rounded-md">
         {items.map((item) => (
@@ -106,14 +106,14 @@ export default function TechStack() {
   const row3 = techCategories.slice(5, 7);
 
   return (
-    <section id="techstack" className="relative min-h-screen flex items-center py-20 md:py-24">
-      <div className="hidden md:block absolute left-[200px] lg:left-[200px] top-0 bottom-0 w-px bg-[#3D3367] z-0" />
+    <section id="techstack" className="relative min-h-screen flex items-center py-20 lg:py-24">
+      <div className="hidden lg:block absolute left-[200px] top-0 bottom-0 w-px bg-[#3D3367] z-0" />
 
-      <div className="w-full px-6 sm:px-10 md:pl-[170px] lg:pl-[190px] xl:pl-[210px] pr-6 md:pr-12">
+      <div className="w-full px-6 sm:px-10 lg:pl-[210px] pr-6 lg:pr-12">
         <div className="relative z-10 flex items-center gap-3 mb-1">
 
           {/* Diamond */}
-          <div className="hidden md:block flex-shrink-0 -ml-[22px] relative z-10 bg-[#000013] px-[1px]">
+          <div className="hidden lg:block flex-shrink-0 -ml-[22px] relative z-10 bg-[#000013] px-[1px]">
             <svg width="24" height="24" viewBox="0 0 14 14">
               <path d="M7 0L8.5 5.5L14 7L8.5 8.5L7 14L5.5 8.5L0 7L5.5 5.5L7 0Z" fill="#A78BFA" />
             </svg>
@@ -123,17 +123,17 @@ export default function TechStack() {
             Tech Stack
           </h2>
         </div>
-        <p className="text-[#94A3B8] text-sm mb-10 md:ml-[18px]" style={{ fontFamily: "'JetBrains Mono', monospace" }}> 
+        <p className="text-[#94A3B8] text-sm mb-10 lg:ml-[18px]" style={{ fontFamily: "'JetBrains Mono', monospace" }}> 
           Tools &amp; Technologies I work with
         </p>
 
-        <div className="flex flex-col md:flex-row gap-6 mb-6 md:ml-[20px]">
+        <div className="flex flex-col xl:flex-row gap-6 mb-6 lg:ml-[20px]">
           {row1.map((cat) => <CategoryBlock key={cat.title} {...cat} />)}
         </div>
-        <div className="flex flex-col md:flex-row gap-6 mb-6 md:ml-[20px]">
+        <div className="flex flex-col xl:flex-row gap-6 mb-6 lg:ml-[20px]">
           {row2.map((cat) => <CategoryBlock key={cat.title} {...cat} />)}
         </div>
-        <div className="flex flex-col md:flex-row gap-6 md:ml-[20px]">
+        <div className="flex flex-col xl:flex-row gap-6 lg:ml-[20px]">
           {row3.map((cat) => <CategoryBlock key={cat.title} {...cat} />)}
         </div>
       </div>

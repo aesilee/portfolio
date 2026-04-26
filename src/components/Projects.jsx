@@ -61,12 +61,12 @@ export default function Projects() {
   };
 
   return (
-    <section id="projects" className="relative py-16 md:py-20">
-      <div className="hidden md:block absolute left-[200px] lg:left-[200px] top-0 bottom-0 w-px bg-[#3D3367] z-0" />
+    <section id="projects" className="relative py-16 lg:py-20">
+      <div className="hidden lg:block absolute left-[200px] top-0 bottom-0 w-px bg-[#3D3367] z-0" />
 
-      <div className="px-6 sm:px-8 md:pl-[190px] lg:pl-[210px] md:pr-8">
+      <div className="px-6 sm:px-8 lg:pl-[210px] lg:pr-8">
         <div className="relative z-10 flex items-center gap-3 mb-6">
-          <div className="hidden md:block flex-shrink-0 -ml-[22px] relative z-10 bg-[#000013] px-[1px]">
+          <div className="hidden lg:block flex-shrink-0 -ml-[22px] relative z-10 bg-[#000013] px-[1px]">
             <svg width="24" height="24" viewBox="0 0 14 14">
               <path d="M7 0L8.5 5.5L14 7L8.5 8.5L7 14L5.5 8.5L0 7L5.5 5.5L7 0Z" fill="#7c5fe6" />
             </svg>
@@ -76,11 +76,11 @@ export default function Projects() {
 
         <div>
           {/* Mobile: stacked list. Desktop: side by side */}
-          <div className="flex flex-col md:flex-row gap-6">
+          <div className="flex flex-col lg:flex-row gap-6">
 
           {/* Main display */}
-          <div className="flex-1 md:pl-[20px]">
-            <div className="w-full h-40 sm:h-52 md:h-64 bg-[#0d1030] border border-[#1e2040] mb-4 rounded-md" />
+          <div className="flex-1 lg:pl-[20px]">
+            <div className="w-full h-40 sm:h-52 lg:h-64 bg-[#0d1030] border border-[#1e2040] mb-4 rounded-md" />
             <h3 className="font-mono text-white font-bold text-sm sm:text-base mb-2 rounded-md">{selected.title}</h3>
             <p className="font-mono text-gray-400 text-xs sm:text-sm leading-loose mb-4">{selected.description}</p>
             <div className="flex flex-wrap gap-2">
@@ -93,16 +93,16 @@ export default function Projects() {
           </div>
 
           {/* Project list — full width cards on mobile */}
-          <div className="md:w-64 lg:w-72 flex flex-col gap-2">
+          <div className="lg:w-72 flex flex-col gap-2">
             {/* Switch button — desktop only, sits above list */}
             <button onClick={handleModeSwitch}
-              className="hidden md:flex items-center justify-between border border-[#2a2a5a] bg-[#0f1028] text-white font-mono text-xs px-4 py-2.5 mb-2 hover:border-[#7c5fe6] transition-colors w-full rounded-md">
+              className="hidden lg:flex items-center justify-between border border-[#2a2a5a] bg-[#0f1028] text-white font-mono text-xs px-4 py-2.5 mb-2 hover:border-[#7c5fe6] transition-colors w-full rounded-md">
               <span className="text-gray-300">{mode === "dev" ? "Switch to UI/UX" : "Switch to Dev"}</span>
               <span className="text-gray-300">⇄</span>
             </button>
             {/* Switch button — mobile only, full width */}
             <button onClick={handleModeSwitch}
-              className="md:hidden flex items-center justify-between border border-[#2a2a5a] bg-[#0f1028] text-white font-mono text-xs px-4 py-2.5 mb-2 hover:border-[#7c5fe6] transition-colors w-full rounded-md">
+              className="lg:hidden flex items-center justify-between border border-[#2a2a5a] bg-[#0f1028] text-white font-mono text-xs px-4 py-2.5 mb-2 hover:border-[#7c5fe6] transition-colors w-full rounded-md">
               <span className="text-gray-300">{mode === "dev" ? "Switch to UI/UX" : "Switch to Dev"}</span>
               <span className="text-gray-300">⇄</span>
             </button>

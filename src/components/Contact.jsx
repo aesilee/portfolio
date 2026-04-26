@@ -46,12 +46,12 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="relative py-16 md:py-24">
-      <div className="hidden md:block absolute left-[200px] lg:left-[200px] top-0 bottom-0 w-px bg-[#3D3367] z-0" />
+    <section id="contact" className="relative py-16 lg:py-24">
+      <div className="hidden lg:block absolute left-[200px] top-0 bottom-0 w-px bg-[#3D3367] z-0" />
 
-      <div className="px-6 sm:px-8 md:pl-[190px] lg:pl-[210px] md:pr-12">
+      <div className="px-6 sm:px-8 lg:pl-[210px] lg:pr-12">
         <div className="relative z-10 flex items-center gap-3 mb-6">
-          <div className="hidden md:block flex-shrink-0 -ml-[22px] relative z-10 bg-[#000013] px-[1px]">
+          <div className="hidden lg:block flex-shrink-0 -ml-[22px] relative z-10 bg-[#000013] px-[1px]">
             <svg width="24" height="24" viewBox="0 0 14 14">
               <path d="M7 0L8.5 5.5L14 7L8.5 8.5L7 14L5.5 8.5L0 7L5.5 5.5L7 0Z" fill="#7c5fe6" />
             </svg>
@@ -62,10 +62,10 @@ export default function Contact() {
         </div>
 
         {/* Stacked on mobile, equal-height columns on desktop */}
-        <div className="flex flex-col md:grid md:grid-cols-2 md:items-stretch gap-4 md:gap-6">
+        <div className="flex flex-col lg:grid lg:grid-cols-2 lg:items-stretch gap-4 lg:gap-6">
 
           {/*Main Form */}
-          <div className="border border-[#1e2040] p-4 sm:p-5 bg-[#0a0a1a] flex flex-col h-full rounded-md md:ml-[18px]">
+          <div className="border border-[#1e2040] p-4 sm:p-5 bg-[#0a0a1a] flex flex-col h-full rounded-md lg:ml-[18px]">
 
             <div className="mb-4">
               <label className="font-mono text-gray-400 text-xs block mb-1.5">Email</label>
