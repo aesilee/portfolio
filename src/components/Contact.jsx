@@ -1,17 +1,15 @@
 import { useState } from "react";
 import emailjs from "@emailjs/browser";
 
-export default function Contact() {
+export default function Contact({ onToast }) {
   const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
   const [isSending, setIsSending] = useState(false);
-  const [toast, setToast] = useState({ show: false, type: "success", message: "" });
   const handleChange = (e) => setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
 
   const showToast = (type, message) => {
-    setToast({ show: true, type, message });
-    window.setTimeout(() => {
-      setToast({ show: false, type: "success", message: "" });
-    }, 2800);
+    if (typeof onToast === "function") {
+      onToast(type, message);
+    }
   };
 
   const handleSend = async () => {
@@ -27,7 +25,8 @@ export default function Contact() {
         "template_fx14map",
         {
           name: form.name || "Portfolio Visitor",
-          email: form.email,
+          email: "ashquinas@gmail.com",
+          reply_to: form.email,
           from_name: form.name || "Portfolio Visitor",
           from_email: form.email,
           subject: form.subject,
@@ -46,13 +45,13 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="relative py-16 lg:py-24">
+    <section id="contact" className="relative flex items-center min-h-[78vh] lg:min-h-[82vh] py-10 lg:py-14">
       <div className="section-line hidden lg:block absolute left-[200px] top-0 bottom-0 w-px bg-[#3D3367] z-0" />
 
-      <div className="px-6 sm:px-8 lg:pl-[210px] lg:pr-12">
+      <div className="px-6 sm:px-8 lg:pl-[210px] lg:pr-12 lg:translate-y-[120px]">
         <div className="relative z-10 flex items-center gap-3 mb-6">
-          <div className="hidden lg:block flex-shrink-0 -ml-[22px] relative z-10 px-[1px]">
-            <svg width="24" height="24" viewBox="0 0 14 14">
+          <div className="hidden lg:block flex-shrink-0 lg:-ml-[24px] 2xl:-ml-[28px] relative z-10 px-[1px]">
+            <svg className="w-5 h-5 lg:w-6 lg:h-6 2xl:w-7 2xl:h-7" viewBox="0 0 14 14">
               <path d="M7 0L8.5 5.5L14 7L8.5 8.5L7 14L5.5 8.5L0 7L5.5 5.5L7 0Z" fill="#7c5fe6" />
             </svg>
           </div>
@@ -152,19 +151,6 @@ export default function Contact() {
         </div>
       </div>
 
-      <div
-        className={`fixed bottom-5 right-5 z-[60] border rounded-md px-4 py-3 shadow-lg transition-all duration-300 ${
-          toast.show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2 pointer-events-none"
-        } ${
-          toast.type === "success"
-            ? "bg-[#2f9e72] border-[#50C878] text-white"
-            : "bg-[#b33d3d] border-[#d96464] text-white"
-        }`}
-        role="status"
-        aria-live="polite"
-      >
-        <p className="font-mono text-xs sm:text-sm">{toast.message}</p>
-      </div>
     </section>
   );
 }

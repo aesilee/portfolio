@@ -5,9 +5,11 @@ import About from "./components/About";
 import TechStack from "./components/TechStack";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
+import Toast from "./components/Toast";
 
 export default function App() {
   const [activeSection, setActiveSection] = useState("home");
+  const [toast, setToast] = useState({ show: false, type: "success", message: "" });
 
   useEffect(() => {
     const handleScroll = () => {
@@ -62,6 +64,13 @@ export default function App() {
     return () => observer.disconnect();
   }, []);
 
+  const showToast = (type, message) => {
+    setToast({ show: true, type, message });
+    window.setTimeout(() => {
+      setToast({ show: false, type: "success", message: "" });
+    }, 2800);
+  };
+
   return (
     <div className="relative bg-[#000013] min-h-screen text-white font-mono">
       <div className="bg-orb bg-orb-1" />
@@ -72,8 +81,9 @@ export default function App() {
       <Hero />
       <About />
       <Projects />
-      <Contact />
+      <Contact onToast={showToast} />
       <TechStack />
+      <Toast toast={toast} />
     </div>
   );
 }

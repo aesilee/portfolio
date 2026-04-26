@@ -66,8 +66,7 @@ function TechItem({ name, icon, invert, svg }) {
       {svg ? (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="40"
-          height="40"
+          className="w-10 h-10 lg:w-11 lg:h-11 2xl:w-12 2xl:h-12"
           fill="white"
           viewBox="0 0 24 24"
           dangerouslySetInnerHTML={{ __html: svg }}
@@ -76,7 +75,7 @@ function TechItem({ name, icon, invert, svg }) {
         <img
           src={icon}
           alt={name}
-          className={`w-10 h-10 object-contain ${invert ? "filter invert brightness-75" : ""}`}
+          className={`w-10 h-10 lg:w-11 lg:h-11 2xl:w-12 2xl:h-12 object-contain ${invert ? "filter invert brightness-75" : ""}`}
           onError={(e) => {
             e.target.src = "https://img.icons8.com/color/96/source-code.png";
           }}
@@ -106,15 +105,15 @@ export default function TechStack() {
   const row3 = techCategories.slice(5, 7);
 
   return (
-    <section id="techstack" className="relative min-h-screen flex items-center py-20 lg:py-24">
+    <section id="techstack" className="relative flex items-center min-h-[78vh] lg:min-h-[82vh] pt-10 pb-36 lg:pt-14 lg:pb-48">
       <div className="section-line hidden lg:block absolute left-[200px] top-0 bottom-0 w-px bg-[#3D3367] z-0" />
 
-      <div className="w-full px-6 sm:px-10 lg:pl-[210px] pr-6 lg:pr-12">
+      <div className="w-full px-6 sm:px-10 lg:pl-[210px] pr-6 lg:pr-12 lg:translate-y-[120px]">
         <div className="relative z-10 flex items-center gap-3 mb-1">
 
           {/* Diamond */}
-          <div className="hidden lg:block flex-shrink-0 -ml-[22px] relative z-10 px-[1px]">
-            <svg width="24" height="24" viewBox="0 0 14 14">
+          <div className="hidden lg:block flex-shrink-0 lg:-ml-[24px] 2xl:-ml-[28px] relative z-10 px-[1px]">
+            <svg className="w-5 h-5 lg:w-6 lg:h-6 2xl:w-7 2xl:h-7" viewBox="0 0 14 14">
               <path d="M7 0L8.5 5.5L14 7L8.5 8.5L7 14L5.5 8.5L0 7L5.5 5.5L7 0Z" fill="#A78BFA" />
             </svg>
           </div>

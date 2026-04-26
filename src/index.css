@@ -153,6 +153,36 @@ a,
   }
 }
 
+/* Large desktop scaling (e.g., 24" 1920x1080+) */
+@media (min-width: 1600px) {
+  html {
+    font-size: 20px;
+  }
+
+  .global-section-line,
+  .section-line {
+    width: 2px !important;
+  }
+
+  input,
+  textarea,
+  button,
+  a {
+    border-radius: 0.5rem;
+  }
+}
+
+@media (min-width: 1920px) {
+  html {
+    font-size: 22px;
+  }
+
+  .global-section-line,
+  .section-line {
+    width: 3px !important;
+  }
+}
+
 /* Scrollbar */
 ::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: #000013; }

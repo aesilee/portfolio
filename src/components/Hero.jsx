@@ -9,8 +9,8 @@ export default function Hero() {
 
         {/* Greeting row */}
         <div className="relative z-10 flex items-center gap-3 mb-5 lg:-ml-[10px]">
-          <div className="hidden lg:block flex-shrink-0 -ml-[22px] relative z-10 px-[1px]">
-            <svg width="24" height="24" viewBox="0 0 14 14">
+          <div className="hidden lg:block flex-shrink-0 lg:-ml-[24px] 2xl:-ml-[28px] relative z-10 px-[1px]">
+            <svg className="w-5 h-5 lg:w-6 lg:h-6 2xl:w-7 2xl:h-7" viewBox="0 0 14 14">
               <path d="M7 0L8.5 5.5L14 7L8.5 8.5L7 14L5.5 8.5L0 7L5.5 5.5L7 0Z" fill="#A78BFA" />
             </svg>
           </div>
