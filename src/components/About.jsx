@@ -17,7 +17,7 @@ export default function About() {
       <div className="px-6 sm:px-8 lg:pl-[210px] lg:pr-12 lg:translate-y-[120px]">
         <div className="relative z-10 flex items-center gap-3 mb-6">
           {/* Diamond */}
-          <div className="hidden lg:block flex-shrink-0 lg:-ml-[24px] 2xl:-ml-[28px] relative z-10 px-[1px]">
+          <div className="hidden lg:block flex-shrink-0 lg:-ml-[22px] xl:-ml-[24px] 2xl:-ml-[28px] relative z-10 px-[1px]">
             <Diamond />
           </div>
           {/* Title */}
