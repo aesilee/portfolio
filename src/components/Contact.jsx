@@ -1,8 +1,45 @@
 import { useState } from "react";
+import emailjs from "@emailjs/browser";
 
 export default function Contact() {
   const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
+  const [isSending, setIsSending] = useState(false);
+  const [toast, setToast] = useState({ show: false, type: "success", message: "" });
   const handleChange = (e) => setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+
+  const showToast = (type, message) => {
+    setToast({ show: true, type, message });
+    window.setTimeout(() => {
+      setToast({ show: false, type: "success", message: "" });
+    }, 2800);
+  };
+
+  const handleSend = async () => {
+    if (!form.email || !form.subject || !form.message) {
+      showToast("error", "Please fill in all required fields.");
+      return;
+    }
+
+    try {
+      setIsSending(true);
+      await emailjs.send(
+        "service_myi8bbt",
+        "template_fx14map",
+        {
+          from_email: form.email,
+          subject: form.subject,
+          message: form.message,
+        },
+        "ean5XXOn_8xezbduw"
+      );
+      showToast("success", "Message sent. I will get back to you soon.");
+      setForm({ name: "", email: "", subject: "", message: "" });
+    } catch {
+      showToast("error", "Failed to send message. Please try again.");
+    } finally {
+      setIsSending(false);
+    }
+  };
 
   return (
     <section id="contact" className="relative py-16 md:py-24">
@@ -45,9 +82,11 @@ export default function Contact() {
                   className="w-full flex-1 min-h-[140px] bg-[#0f0f28] border border-[#1e2040] text-white font-mono text-xs px-3 py-2 focus:outline-none focus:border-[#7c5fe6] transition-colors resize-none rounded-md" />
                 <button
                   type="button"
-                  className="mt-2 border border-[#7c5fe6] text-[#a78bfa] font-mono text-xs px-5 py-2 rounded-md hover:bg-[#7c5fe6]/15 transition-colors"
+                  onClick={handleSend}
+                  disabled={isSending}
+                  className="mt-2 border border-[#7c5fe6] text-[#a78bfa] font-mono text-xs px-5 py-2 rounded-md hover:bg-[#7c5fe6]/15 transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
                 >
-                  Send
+                  {isSending ? "Sending..." : "Send"}
                 </button>
               </div>
             </div>
@@ -107,6 +146,20 @@ export default function Contact() {
             </div>
           </div>
         </div>
+      </div>
+
+      <div
+        className={`fixed bottom-5 right-5 z-[60] border rounded-md px-4 py-3 shadow-lg transition-all duration-300 ${
+          toast.show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2 pointer-events-none"
+        } ${
+          toast.type === "success"
+            ? "bg-[#0d1b1f] border-[#1f8a70] text-[#c8f7e5]"
+            : "bg-[#1f1313] border-[#a33a3a] text-[#fecaca]"
+        }`}
+        role="status"
+        aria-live="polite"
+      >
+        <p className="font-mono text-xs sm:text-sm">{toast.message}</p>
       </div>
     </section>
   );
