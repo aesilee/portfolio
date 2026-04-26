@@ -64,6 +64,32 @@ export default function App() {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    const syncGlobalLineTop = () => {
+      const anchor = document.getElementById("hero-line-anchor");
+      const appRoot = document.getElementById("app-root");
+      if (!anchor || !appRoot) return;
+
+      const appTop = appRoot.getBoundingClientRect().top + window.scrollY;
+      const anchorRect = anchor.getBoundingClientRect();
+      const anchorCenterY = anchorRect.top + window.scrollY + (anchorRect.height / 2);
+      const top = Math.max(anchorCenterY - appTop, 0);
+
+      document.documentElement.style.setProperty("--global-line-top", `${top}px`);
+    };
+
+    syncGlobalLineTop();
+    window.addEventListener("resize", syncGlobalLineTop);
+    window.addEventListener("orientationchange", syncGlobalLineTop);
+    window.setTimeout(syncGlobalLineTop, 50);
+    window.setTimeout(syncGlobalLineTop, 300);
+
+    return () => {
+      window.removeEventListener("resize", syncGlobalLineTop);
+      window.removeEventListener("orientationchange", syncGlobalLineTop);
+    };
+  }, []);
+
   const showToast = (type, message) => {
     setToast({ show: true, type, message });
     window.setTimeout(() => {
@@ -72,11 +98,14 @@ export default function App() {
   };
 
   return (
-    <div className="relative bg-[#000013] min-h-screen text-white font-mono">
+    <div id="app-root" className="relative bg-[#000013] min-h-screen text-white font-mono">
       <div className="bg-orb bg-orb-1" />
       <div className="bg-orb bg-orb-2" />
       <div className="bg-orb bg-orb-3" />
-      <div className="global-section-line hidden lg:block absolute left-[200px] top-[39vh] bottom-0 w-px bg-[#3D3367] z-0" />
+      <div
+        className="global-section-line hidden lg:block absolute left-[200px] bottom-0 w-px bg-[#3D3367] z-0"
+        style={{ top: "var(--global-line-top, 39vh)" }}
+      />
       <Navbar activeSection={activeSection} />
       <Hero />
       <About />

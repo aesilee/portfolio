@@ -51,7 +51,7 @@ export default function Contact({ onToast }) {
       <div className="px-6 sm:px-8 lg:pl-[210px] lg:pr-12 lg:translate-y-[120px]">
         <div className="relative z-10 flex items-center gap-3 mb-6">
           {/* Diamond */}
-          <div className="hidden lg:block flex-shrink-0 lg:-ml-[22px] xl:-ml-[23px] 2xl:-ml-[29px] relative z-10 px-[1px]">
+          <div className="hidden lg:block flex-shrink-0 lg:-ml-[22px] xl:-ml-[23px] min-[1500px]:-ml-[23px] 2xl:-ml-[25px] relative z-10 px-[1px]">
             <svg className="w-5 h-5 lg:w-6 lg:h-6 2xl:w-7 2xl:h-7" viewBox="0 0 14 14">
               <path d="M7 0L8.5 5.5L14 7L8.5 8.5L7 14L5.5 8.5L0 7L5.5 5.5L7 0Z" fill="#7c5fe6" />
             </svg>
