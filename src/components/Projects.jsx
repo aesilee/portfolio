@@ -9,15 +9,19 @@ const devProjects = [
   },
   {
     id: 2,
-    title: "Keystroke Tracker",
-    description: "A productivity tool that tracks and analyzes keystroke patterns.",
-    tags: ["JavaScript", "Electron"],
+    title: "Keystroke Tracker - Windows Productivity Monitoring Application",
+    description: "Keystroke Tracker is a Windows desktop application developed out of a practical need during my previous role as a project-based Data Analyst, where meeting daily keystroke quotas was part of the job. The application allows me to monitor my total keystrokes, track progress, and easily determine whether I've met the company's required quota or my personal productivity goals.",
+    tags: ["Windows", "C#"],
+    video: "/videos/coding-projects/keystroke-demo.mp4",
+    thumbnail: "/images/coding-projects/keystroke-cover.png",
   },
   {
     id: 3,
-    title: "Quizit",
-    description: "An interactive quiz application for engaging learning experiences.",
-    tags: ["React", "Node.js"],
+    title: "Quizit - Web-Based Reviewer and Learning Platform",
+    description: "QuizIt is a free, web-based reviewer platform designed to make studying more accessible, organized, and engaging. Inspired by digital flashcard and learning tools, it allows users to create, manage, and access personalized study sets to help reinforce their knowledge and improve information retention.",
+    tags: ["HTML5", "JavaScript", "CSS", "Node.js"],
+    video: "/videos/coding-projects/quizit-demo.mp4",
+    thumbnail: "/images/coding-projects/quizit-cover.png",
   },
   {
     id: 4,
@@ -61,10 +65,10 @@ export default function Projects() {
   };
 
   return (
-    <section id="projects" className="relative flex items-center min-h-[78vh] lg:min-h-[82vh] py-10 lg:py-14">
+    <section id="projects" className="relative flex items-center min-h-screen py-10 lg:py-14">
       <div className="section-line hidden lg:block absolute left-[200px] top-0 bottom-0 w-px bg-[#3D3367] z-0" />
 
-      <div className="px-6 sm:px-8 lg:pl-[210px] lg:pr-8 lg:translate-y-[120px]">
+      <div className="w-full px-6 sm:px-8 lg:pl-[210px] lg:pr-8 lg:translate-y-[120px]">
         <div className="relative z-10 flex items-center gap-3 mb-6">
           {/* Diamond */}
           <div className="hidden lg:block flex-shrink-0 lg:-ml-[22px] xl:-ml-[23px] min-[1500px]:-ml-[23px] 2xl:-ml-[25px] relative z-10 px-[1px]">
@@ -80,8 +84,23 @@ export default function Projects() {
           <div className="flex flex-col lg:flex-row gap-6">
 
           {/* Main display */}
-          <div className="flex-1 lg:pl-[20px] lg:max-w-[calc(100%-22rem)] xl:max-w-[calc(100%-24rem)] 2xl:max-w-[calc(100%-26rem)]">
-            <div className="w-full h-40 sm:h-52 lg:h-64 xl:h-72 2xl:h-80 bg-[#0d1030] border border-[#1e2040] mb-4 rounded-md" />
+          <div
+            className="w-full lg:flex-none lg:pl-[20px] lg:w-[calc(48vh*16/9)] lg:max-w-[calc(100%-22rem)] xl:max-w-[calc(100%-24rem)] 2xl:max-w-[calc(100%-26rem)]"
+          >
+            <div className="w-full aspect-video bg-[#0d1030] border border-[#1e2040] mb-4 rounded-md overflow-hidden">
+              {selected.video && (
+                <video
+                  key={selected.video}
+                  src={selected.video}
+                  poster={selected.thumbnail}
+                  controls
+                  muted
+                  playsInline
+                  preload="metadata"
+                  className="w-full h-full object-contain bg-black"
+                />
+              )}
+            </div>
             <h3 className="font-mono text-white font-bold text-sm sm:text-base mb-2 rounded-md">{selected.title}</h3>
             <p className="font-mono text-gray-400 text-xs sm:text-sm leading-loose mb-4">{selected.description}</p>
             <div className="flex flex-wrap gap-2">
@@ -94,7 +113,7 @@ export default function Projects() {
           </div>
 
           {/* Project list — full width cards on mobile */}
-          <div className="lg:w-80 xl:w-96 2xl:w-[26rem] flex flex-col gap-2">
+          <div className="lg:flex-1 lg:min-w-[18rem] flex flex-col gap-2">
             {/* Switch button — desktop only, sits above list */}
             <button onClick={handleModeSwitch}
               className="hidden lg:flex items-center justify-between border border-[#2a2a5a] bg-[#0f1028] text-white font-mono text-xs px-4 py-2.5 mb-2 hover:border-[#7c5fe6] transition-colors w-full rounded-md">
@@ -114,7 +133,11 @@ export default function Projects() {
                     ? "border-[#7c5fe6] bg-[#1a1a40]"
                     : "border-[#1e2040] bg-[#0f1028] hover:border-[#2a2a5a]"
                 } rounded-md`}>
-                <div className="w-14 h-10 bg-[#0d1030] flex-shrink-0 border border-[#1e2040] rounded-md" />
+                <div className="w-14 h-10 bg-[#0d1030] flex-shrink-0 border border-[#1e2040] rounded-md overflow-hidden">
+                  {proj.thumbnail && (
+                    <img src={proj.thumbnail} alt={proj.title} className="w-full h-full object-cover" />
+                  )}
+                </div>
                 <span className="font-mono text-[10px] sm:text-xs text-gray-300 line-clamp-2">{proj.title}</span>
               </button>
             ))}

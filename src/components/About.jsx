@@ -10,7 +10,7 @@ function Diamond() {
 
 export default function About() {
   return (
-    <section id="about" className="relative flex items-center min-h-[78vh] lg:min-h-[82vh] py-10 lg:py-14">
+    <section id="about" className="relative flex items-center min-h-screen py-10 lg:py-14">
       {/* Vertical line */}
       <div className="section-line hidden lg:block absolute left-[200px] top-0 bottom-0 w-px bg-[#3D3367] z-0" />
 

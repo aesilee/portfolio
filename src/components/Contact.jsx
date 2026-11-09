@@ -45,7 +45,7 @@ export default function Contact({ onToast }) {
   };
 
   return (
-    <section id="contact" className="relative flex items-center min-h-[78vh] lg:min-h-[82vh] py-10 lg:py-14">
+    <section id="contact" className="relative flex items-center min-h-screen py-10 lg:py-14">
       <div className="section-line hidden lg:block absolute left-[200px] top-0 bottom-0 w-px bg-[#3D3367] z-0" />
 
       <div className="px-6 sm:px-8 lg:pl-[210px] lg:pr-12 lg:translate-y-[120px]">
